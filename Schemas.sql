@@ -1,3 +1,4 @@
+/* Database schema to keep the structure of entire database. */
 -- Table: public.animals
 
 -- DROP TABLE IF EXISTS public.animals;
@@ -17,3 +18,7 @@ TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.animals
     OWNER to postgres;
+
+/* Vet clinic database: query and update animals table */
+
+    ALTER TABLE animals ADD COLUMN species VARCHAR(100);

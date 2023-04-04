@@ -6,3 +6,46 @@ SELECT name FROM animals WHERE date_of_birth >= DATE '2016-01-01' AND date_of_bi
 SELECT date_of_birth FROM animals WHERE name IN ('Agumon', 'Pikachu');
 SELECT * FROM animals WHERE neutered = true;
 SELECT * FROM animals WHERE weight_kg BETWEEN 10.4 AND 17.3;
+
+/* Vet clinic database: query and update animals table */
+BEGIN TRANSACTION;
+UPDATE animals 
+SET species = 'digimon' 
+WHERE name LIKE '%mon';
+UPDATE animals 
+SET species = 'pokemon' 
+WHERE species IS NULL;
+COMMIT;
+SELECT * FROM animals;
+
+BEGIN TRANSACTION;
+DELETE FROM animals;
+ROLLBACK TRANSACTION;
+SELECT * FROM animals;
+
+BEGIN TRANSACTION;
+DELETE FROM animals WHERE date_of_birth > DATE '2022-01-01';
+SAVEPOINT my_savepoint;
+UPDATE animals SET weight_kg = weight_kg * -1;
+ROLLBACK TO SAVEPOINT my_savepoint;
+UPDATE animals SET weight_kg = weight_kg * -1 WHERE weight_kg < 0;
+COMMIT TRANSACTION;
+SELECT * FROM animals;
+
+
+SELECT COUNT(*) FROM animals;
+SELECT COUNT(*) FROM animals WHERE escape_attempts = 0;
+SELECT AVG(weight_kg) FROM animals;
+
+SELECT neutered, COUNT(*) AS NumOfanimals, AVG(escape_attempts) AS Avgescape_attempts 
+FROM animals 
+GROUP BY neutered;
+
+SELECT species, MIN(weight_kg), MAX(weight_kg) 
+FROM animals 
+GROUP BY species;
+
+SELECT species, AVG(escape_attempts) 
+FROM animals 
+WHERE date_of_birth BETWEEN DATE '1990-01-01' AND DATE '2000-12-31' 
+GROUP BY species;
