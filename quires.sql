@@ -94,3 +94,67 @@ WHERE count = (SELECT MAX(count) FROM (
   JOIN owners o ON o.id = owner_id
   GROUP BY owner
 ) AS animals_per_owner);
+
+
+/* Vet clinic database: add "join table" for visits */
+
+SELECT a.name FROM animals a
+WHERE a.id = ( SELECT animal_id FROM visits
+  LEFT JOIN vets ON visits.vet_id = vets.id
+  WHERE vets.name = 'William Tatcher' 
+  GROUP BY animal_id
+  ORDER BY MAX(visit_dates) DESC LIMIT 1
+);
+
+SELECT COUNT(*) FROM visits
+WHERE vet_id = (
+  SELECT id FROM vets WHERE name = 'Stephanie Mendez'
+);
+
+
+SELECT *
+FROM vets v
+LEFT JOIN specializations vs ON v.id = vs.vet_id;
+
+SELECT * FROM animals
+JOIN visits ON visits.animal_id = animals.id
+JOIN vets ON vets.id = vet_id
+WHERE vets.name = 'Stephanie Mendez' AND visit_dates BETWEEN '20200401' AND '20200901';
+
+
+SELECT name FROM (
+  SELECT COUNT(visit_dates) AS count, animals.name as name FROM animals
+  LEFT JOIN visits ON animals.id = animal_id
+  GROUP BY animals.name
+) as tt1
+GROUP BY name
+ORDER BY MAX(count) DESC LIMIT 1;
+
+SELECT name FROM animals 
+Where id = (SELECT animal_id FROM visits
+LEFT JOIN vets ON vets.id = vet_id
+WHERE vets.name = 'Maisy Smith'
+ORDER BY visit_dates LIMIT 1);
+
+
+SELECT * FROM animals
+LEFT JOIN visits ON animal_id = animals.id
+FULL JOIN vets on vets.id = visits.vet_id
+ORDER BY visit_dates DESC LIMIT 1;
+
+
+SELECT vets.name AS "Vet", COUNT(*) FROM visits 
+LEFT JOIN vets ON visits.vet_id = vets.id
+LEFT JOIN specializations ON vets.id = specializations.vet_id 
+LEFT JOIN species ON specializations.species_id = species.id 
+WHERE specializations.species_id IS NULL 
+OR specializations.species_id != species.id 
+GROUP BY vets.name;
+
+
+SELECT vets.name AS "Vet", species.name AS "Specie", COUNT(*) FROM visits 
+LEFT JOIN vets ON visits.vet_id = vets.id
+LEFT JOIN animals ON visits.animal_id = animals.id 
+LEFT JOIN species ON animals.species_id = species.id
+WHERE vets.name = 'Maisy Smith' 
+GROUP BY vets.name, species.name LIMIT 1;
