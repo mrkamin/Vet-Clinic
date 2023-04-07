@@ -51,7 +51,8 @@ WHERE date_of_birth BETWEEN DATE '1990-01-01' AND DATE '2000-12-31'
 GROUP BY species;
 
 
-/* Vet-clinic database: query multiple tables */
+/* Vet clinic database: query multiple tables */
+
 
 SELECT name FROM animals
 INNER JOIN owners on owners.id = owner_id
@@ -93,4 +94,3 @@ WHERE count = (SELECT MAX(count) FROM (
   JOIN owners o ON o.id = owner_id
   GROUP BY owner
 ) AS animals_per_owner);
-
