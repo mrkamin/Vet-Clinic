@@ -94,4 +94,3 @@ WHERE count = (SELECT MAX(count) FROM (
   JOIN owners o ON o.id = owner_id
   GROUP BY owner
 ) AS animals_per_owner);
-
