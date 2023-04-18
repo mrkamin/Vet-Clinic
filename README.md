@@ -86,6 +86,12 @@ no need fro deplyment
 - GitHub: [@githubhandle](https://github.com/iqbal-elham)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/iqbal-elham/)
 
+👤 **Henschel Nketchogue M.**
+
+- GitHub: [miltonHenschel](https://github.com/miltonHenschel)
+- LinkedIn: [miltonhenschel](https://www.linkedin.com/in/miltonhenschel/)
+- Twitter: [nketchogue](https://twitter.com/nketchogue)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
