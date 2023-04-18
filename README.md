@@ -73,13 +73,18 @@ no need fro deplyment
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 👥 Author <a name="author"></a>
+## 👥 Authors <a name="author"></a>
 
 👤 **Mohammad Rafi Amin**
 
 - GitHub: [@githubhandle](https://github.com/mrkamin)
 - Twitter: [@twitterhandle](https://twitter.com/Mohamma63974237)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/mohammad-rafi-amin-63b4319b/)
+
+👤 **Mohammad Iqbal Elham**
+
+- GitHub: [@githubhandle](https://github.com/iqbal-elham)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/iqbal-elham/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
