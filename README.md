@@ -111,7 +111,7 @@ Feel free to check the [issues page](https://github.com/mrkamin/Vet-Clinic/issue
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you like this project, please, share it with your friends.
+If you like this project, please, share it with your friends..
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
