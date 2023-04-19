@@ -55,3 +55,15 @@ CREATE TABLE medical_treatment_histories (
     treatment_id INT NOT NULL REFERENCES treatments(id),
     PRIMARY KEY (medical_id, treatment_id) 
 );
+
+/* Creates Indexes */
+
+CREATE INDEX ON medical_histories (patient_id);
+
+CREATE INDEX ON invoice_items (invoice_id);
+
+CREATE INDEX ON invoice_items (treatment_id);
+
+CREATE INDEX ON invoices (medical_history_id);
+
+CREATE INDEX ON medical_treatment_histories (treatment_id);
